@@ -6,5 +6,6 @@
   "deno.codeLens.referencesAllFunctions": true,
   "github.copilot.enable": {
     "*": false
-  }
+  },
+  "editor.formatOnSave": true
 }

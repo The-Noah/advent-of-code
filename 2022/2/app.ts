@@ -6,7 +6,7 @@ type DefendentChoice = "X" | "Y" | "Z";
 const CHOICE_SCORES: Record<DefendentChoice, number> = {
   X: 1,
   Y: 2,
-  Z: 3
+  Z: 3,
 };
 
 const rounds = input
@@ -15,7 +15,7 @@ const rounds = input
   .map((line) => line.split(" ")) as [OpponentChoice, DefendentChoice][];
 
 let totalScore = 0;
-for(const round of rounds){
+for (const round of rounds) {
   totalScore += getRoundScore(round[0], round[1]);
 }
 
@@ -28,7 +28,7 @@ for (const round of rounds) {
 
 console.log("Part 2:", totalScore2);
 
-function getRoundScore(opponent: OpponentChoice, defendent: DefendentChoice){
+function getRoundScore(opponent: OpponentChoice, defendent: DefendentChoice) {
   let score = CHOICE_SCORES[defendent];
 
   if (opponent === "A" && defendent === "X") {
