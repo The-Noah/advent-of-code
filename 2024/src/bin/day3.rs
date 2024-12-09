@@ -1,9 +1,7 @@
-use aoc2024::*;
+use aoc2024::aoc;
 
-pub struct Day3;
-
-impl AdventOfCode for Day3 {
-  fn run() -> (i32, i32) {
+aoc!(
+  {
     let input = include_str!("../../input/day3.txt").trim();
 
     let mut part1 = 0;
@@ -64,8 +62,7 @@ impl AdventOfCode for Day3 {
     }
 
     (part1, part2)
-  }
-}
-
-aoc_main!(Day3);
-aoc_test!(Day3, 156388521, 75920122);
+  },
+  156388521,
+  75920122
+);

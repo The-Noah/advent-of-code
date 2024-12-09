@@ -1,9 +1,12 @@
-use aoc2024::*;
+use aoc2024::aoc;
 
-pub struct Day2;
+/// Return if the levels are safe
+fn check_levels(levels: &[i32]) -> bool {
+  (levels[0] < levels[1] && levels.windows(2).all(|w| w[0] < w[1] && w[0] >= w[1] - 3)) || (levels[0] > levels[1] && levels.windows(2).all(|w| w[0] > w[1] && w[1] >= w[0] - 3))
+}
 
-impl AdventOfCode for Day2 {
-  fn run() -> (i32, i32) {
+aoc!(
+  {
     let input = include_str!("../../input/day2.txt").trim();
 
     let mut part1 = 0;
@@ -35,13 +38,7 @@ impl AdventOfCode for Day2 {
     }
 
     (part1, part2)
-  }
-}
-
-/// Return if the levels are safe
-fn check_levels(levels: &[i32]) -> bool {
-  (levels[0] < levels[1] && levels.windows(2).all(|w| w[0] < w[1] && w[0] >= w[1] - 3)) || (levels[0] > levels[1] && levels.windows(2).all(|w| w[0] > w[1] && w[1] >= w[0] - 3))
-}
-
-aoc_main!(Day2);
-aoc_test!(Day2, 670, 700);
+  },
+  670,
+  700
+);
