@@ -1,4 +1,4 @@
-use aoc2024::AdventOfCode;
+use aoc2024::*;
 
 pub struct Day3;
 
@@ -67,24 +67,5 @@ impl AdventOfCode for Day3 {
   }
 }
 
-fn main() {
-  let result = Day3::run();
-  println!("{}\n{}", result.0, result.1);
-}
-
-#[cfg(test)]
-mod tests {
-  use super::*;
-
-  #[test]
-  fn part1() {
-    let result = Day3::run().0;
-    assert_eq!(result, 156388521);
-  }
-
-  #[test]
-  fn part2() {
-    let result = Day3::run().1;
-    assert_eq!(result, 75920122);
-  }
-}
+aoc_main!(Day3);
+aoc_test!(Day3, 156388521, 75920122);
