@@ -34,16 +34,6 @@ fn main() {
 }
 
 /// Return if the levels are safe
-fn check_levels(levels: &Vec<i32>) -> bool {
-  if levels[0] < levels[1] {
-    if levels.windows(2).all(|w| w[0] < w[1] && w[0] >= w[1] - 3) {
-      return true;
-    }
-  } else if levels[0] > levels[1] {
-    if levels.windows(2).all(|w| w[0] > w[1] && w[1] >= w[0] - 3) {
-      return true;
-    }
-  }
-
-  false
+fn check_levels(levels: &[i32]) -> bool {
+  (levels[0] < levels[1] && levels.windows(2).all(|w| w[0] < w[1] && w[0] >= w[1] - 3)) || (levels[0] > levels[1] && levels.windows(2).all(|w| w[0] > w[1] && w[1] >= w[0] - 3))
 }
